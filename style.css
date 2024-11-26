@@ -1,148 +1,272 @@
 /* Diseño general */
 body {
   font-family: "Arial", sans-serif;
-  background-color: #f4f4f9;
+  background: linear-gradient(135deg, #6c9ce8, #43b6f1); /* Fondo degradado */
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  color: #fff; /* Cambiar el texto a blanco para que contraste con el fondo */
+  flex-direction: column;
+  overflow: hidden;
+  overflow-y: auto;
 }
 
 /* Contenedor principal */
 .container {
   width: 100%;
   max-width: 900px;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  height: auto; /* Asegura que el contenedor tenga una altura automática */
+  backdrop-filter: blur(10px); /* Fondo borroso para un toque moderno */
 }
 
 /* Estilo para el título */
 h1 {
-  text-align: center;
   color: #333;
-  font-size: 2em;
-  margin-bottom: 20px;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px; /* Espaciado entre letras */
+  font-weight: 600;
+  transition: transform 0.3s ease-in-out;
+}
+
+h1:hover {
+  transform: translateY(
+    -5px
+  ); /* Efecto de elevar el título al pasar el ratón */
 }
 
 /* Campo de búsqueda */
 input[type="text"] {
   width: 80%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  margin-right: 10px;
-  font-size: 1em;
+  padding: 15px;
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  font-size: 1.1em;
+  text-align: center;
+  background-color: #fff;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #43b6f1;
+  box-shadow: 0 0 8px rgba(67, 182, 241, 0.8);
 }
 
 button {
-  padding: 10px 20px;
+  padding: 12px 25px;
   border: none;
-  background-color: #007bff;
+  background-color: #43b6f1;
   color: white;
-  border-radius: 8px;
-  font-size: 1em;
+  border-radius: 30px;
+  font-size: 1.1em;
   cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  width: 80%;
+  max-width: 350px;
+  display: block;
+  margin: 0 auto;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #3580b1;
+  transform: translateY(-3px); /* Eleva el botón cuando se pasa el ratón */
+}
+
+button:active {
+  transform: translateY(1px); /* Hace un pequeño efecto de presionar el botón */
 }
 
 /* Contenedor del clima actual */
 #weather-result {
-  margin-top: 20px;
+  margin-top: 25px;
+  margin-bottom: 25px;
   text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
-/* Estilo de las tarjetas de pronóstico */
+#weather-result:hover {
+  transform: translateY(-5px); /* Efecto de elevar el contenedor */
+}
+
+/* Estilo general del contenedor */
 .forecast-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 30px;
+  justify-content: space-between; /* Distribuye el espacio entre los elementos */
+  gap: 20px; /* Espacio entre elementos */
 }
 
+/* Tarjetas de los días */
 .forecast-day {
-  width: 30%;
-  padding: 15px;
-  background-color: #f8f9fa;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin: 10px 0;
+  width: 44%; /* Por defecto, ocupa el 44% del ancho */
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Efecto hover */
 .forecast-day:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Media queries para dispositivos pequeños */
+@media screen and (max-width: 840px) {
+  .forecast-day {
+    width: 100%; /* Ocupa el 100% del ancho del contenedor */
+    margin-bottom: 20px; /* Espacio entre las tarjetas */
+  }
+}
+
+/* Media query adicional para mejorar en dispositivos muy pequeños */
+@media screen and (max-width: 480px) {
+  .forecast-day {
+    padding: 15px; /* Reduce el padding para optimizar el espacio */
+  }
 }
 
 .forecast-day h4 {
-  font-size: 1.4em;
+  font-size: 1.5em;
+  color: #333;
   margin-bottom: 15px;
-  color: #ef3e3e;
+  font-weight: 600;
+}
+
+.forecast-day p {
+  font-size: 1.1em;
+  color: #777;
 }
 
 /* Estilo de cada hora dentro de un día */
 .hourly-forecast {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .hourly-forecast img {
-  width: 50px;
-  height: 50px;
-  background-color: rgb(19, 230, 107);
+  width: 60px;
+  height: 60px;
 }
 
 .hourly-forecast p {
   margin: 5px 0;
-  font-size: 0.9em;
-  color: #555;
+  font-size: 1.1em;
+  color: #444;
 }
+
 .hourly-forecast p:first-of-type {
-  margin: 10px 0;
-  font-size: 1.2em;
-  color: #0a5bd3;
-  font-weight: bold; /* Agregado para destacar la primera hora */
+  font-weight: bold;
+  font-size: 1.3em;
+  color: #43b6f1;
 }
 
 /* Estilos de clima actual */
 #weather-result img {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   margin: 10px 0;
   background-color: #ef3e3e;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 #weather-result p {
   margin: 5px 0;
-  font-size: 1.1em;
-  color: #555;
+  font-size: 1.2em;
+  color: #333;
 }
+
+/* Pronóstico por hora */
 .forecast-hour {
-  display: inline-block; /* Mostrar los pronósticos de las horas en línea */
+  display: inline-block;
   width: 120px;
-  padding: 10px;
-  margin: 10px;
-  background-color: #f2f2f2;
-  border-radius: 8px; /* Bordes redondeados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
-  text-align: center; /* Centrar el texto */
-  transition: transform 0.3s ease; /* Transición para cuando pase el ratón */
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
 }
 
 .forecast-hour:hover {
-  transform: scale(
-    1.05
-  ); /* Aumenta ligeramente el tamaño cuando se pasa el ratón */
+  transform: scale(1.05);
 }
 
 hr {
-  border: 1px solid #ccc; /* Color de la línea */
-  margin: 10px 0; /* Espaciado arriba y abajo de la línea */
+  border: 1px solid #ddd;
+  margin: 15px 0;
+}
+
+/* Media Queries para dispositivos móviles */
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  /* Campo de búsqueda y botón en dispositivos móviles */
+  input[type="text"],
+  button {
+    width: 100%; /* Los inputs y el botón ocupan todo el ancho */
+    margin: 5px 0; /* Espacio entre input y botón */
+  }
+
+  /* Estilo general para forecast-day */
+  .forecast-day {
+    width: 30%; /* Valor predeterminado */
+    margin-bottom: 10px; /* Espaciado predeterminado */
+  }
+
+  /* Responsive: al pasar a 840px o menos */
+  @media screen and (max-width: 1000px) {
+    .forecast-day {
+      width: 100%; /* Se ajusta al 100% del contenedor */
+      margin-bottom: 20px; /* Incrementar el espacio entre los elementos */
+    }
+  }
+
+  .forecast-hour {
+    width: 100%; /* Las horas se muestran en línea */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  input[type="text"],
+  button {
+    width: 100%;
+  }
+
+  .forecast-day {
+    width: 100%;
+  }
+
+  .forecast-hour {
+    width: 100%;
+    margin: 10px 0;
+  }
 }
