@@ -1,74 +1,148 @@
+/* Diseño general */
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to right, #4facfe, #00f2fe);
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  margin: 0;
-}
-
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-input,
-button {
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 5px;
-  border: none;
-}
-
-button {
-  button {
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-}
-button:hover {
-  background-color: #0056b3; /* Un azul más oscuro */
-  transform: scale(1.05); /* Aumenta ligeramente el tamaño */
-}
-
-#weather-result {
-  background: #1b7cd6;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  text-align: center;
   font-family: "Arial", sans-serif;
-  margin-top: 20px;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
+/* Contenedor principal */
+.container {
+  width: 100%;
+  max-width: 900px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para el título */
+h1 {
+  text-align: center;
+  color: #333;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+/* Campo de búsqueda */
+input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  font-size: 1em;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Contenedor del clima actual */
 #weather-result {
   margin-top: 20px;
+  text-align: center;
 }
-#weather-result h2 {
-  font-size: 24px;
+
+/* Estilo de las tarjetas de pronóstico */
+.forecast-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.forecast-day {
+  width: 30%;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.forecast-day:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.forecast-day h4 {
+  font-size: 1.4em;
+  margin-bottom: 15px;
+  color: #ef3e3e;
+}
+
+/* Estilo de cada hora dentro de un día */
+.hourly-forecast {
   margin-bottom: 10px;
 }
-#weather-result p {
-  font-size: 18px;
-  margin: 5px 0;
-}
-#weather-result img {
-  width: 100px;
-  height: 100px;
-  margin: 10px 0;
+
+.hourly-forecast img {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(19, 230, 107);
 }
 
-button {
-  background-color: #007bff;
-  color: #fff;
-  cursor: pointer;
+.hourly-forecast p {
+  margin: 5px 0;
+  font-size: 0.9em;
+  color: #555;
+}
+.hourly-forecast p:first-of-type {
+  margin: 10px 0;
+  font-size: 1.2em;
+  color: #0a5bd3;
+  font-weight: bold; /* Agregado para destacar la primera hora */
+}
+
+/* Estilos de clima actual */
+#weather-result img {
+  width: 80px;
+  height: 80px;
+  margin: 10px 0;
+  background-color: #ef3e3e;
+}
+
+#weather-result p {
+  margin: 5px 0;
+  font-size: 1.1em;
+  color: #555;
+}
+.forecast-hour {
+  display: inline-block; /* Mostrar los pronósticos de las horas en línea */
+  width: 120px;
+  padding: 10px;
+  margin: 10px;
+  background-color: #f2f2f2;
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+  text-align: center; /* Centrar el texto */
+  transition: transform 0.3s ease; /* Transición para cuando pase el ratón */
+}
+
+.forecast-hour:hover {
+  transform: scale(
+    1.05
+  ); /* Aumenta ligeramente el tamaño cuando se pasa el ratón */
+}
+
+hr {
+  border: 1px solid #ccc; /* Color de la línea */
+  margin: 10px 0; /* Espaciado arriba y abajo de la línea */
 }
