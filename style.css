@@ -308,3 +308,111 @@ hr {
 #search-btn {
   align-items: center;
 }
+
+/* -------FOOTER------------- */
+
+/* Estilos generales para el footer */
+.footer {
+  background-color: #2c3e50; /* Fondo oscuro */
+  color: #fff; /* Texto blanco */
+  padding: 20px 0; /* Reducir el padding superior e inferior */
+  font-size: 0.9em; /* Reducir el tamaño de la fuente */
+  text-align: left;
+  width: 100%; /* Asegura que el footer ocupe todo el ancho */
+  position: relative; /* Asegura que no haya problemas con el alineado */
+  margin-top: 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px; /* El footer aún tiene un máximo de ancho para que no se vea demasiado grande */
+  margin: 0 auto;
+}
+
+.footer-about,
+.footer-links,
+.footer-social {
+  flex: 1;
+  margin: 10px;
+  min-width: 250px;
+}
+
+.footer-about h3,
+.footer-links h3,
+.footer-social h3 {
+  font-size: 1.1em;
+  margin-bottom: 8px;
+  color: #43b6f1;
+}
+
+.footer-about p {
+  color: #ccc;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin: 5px 0; /* Reducir espacio entre los enlaces */
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #43b6f1;
+}
+
+.footer-social .social-icons {
+  display: flex;
+  gap: 10px; /* Reducir el espacio entre los iconos */
+}
+
+.social-icon img {
+  width: 25px; /* Reducir el tamaño de los iconos */
+  height: 25px;
+  transition: transform 0.3s ease;
+}
+
+.social-icon img:hover {
+  transform: scale(1.1); /* Agregar un pequeño efecto de hover */
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 10px 0; /* Reducir el padding */
+  background-color: #222;
+  margin-top: 20px;
+  font-size: 0.8em; /* Reducir el tamaño de la fuente */
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* Media Queries para hacer el footer responsivo */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-about,
+  .footer-links,
+  .footer-social {
+    min-width: 100%;
+    text-align: center;
+  }
+
+  .footer-social .social-icons {
+    justify-content: center;
+  }
+}
