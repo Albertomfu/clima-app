@@ -46,7 +46,7 @@ function displaySuggestions(suggestions) {
   // Posicionar las sugerencias debajo del input
   const inputRect = cityInput.getBoundingClientRect();
   suggestionsDiv.style.left = `${inputRect.left}px`;
-  suggestionsDiv.style.top = `${inputRect.bottom + window.scrollY}px`;
+  suggestionsDiv.style.top = `${inputRect.bottom + window.scrollX}px`;
   suggestionsDiv.style.width = `${inputRect.width}px`;
 }
 
