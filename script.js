@@ -1,11 +1,65 @@
 const API_KEY = "e30a987bf8691a449fc7e9f7d8e9e789"; // Reemplaza con tu clave API
 
-document.getElementById("search-btn").addEventListener("click", async () => {
-  const city = document.getElementById("city-input").value;
-  if (city) {
-    console.log(`Buscando el clima de: ${city}`);
+// Elementos del DOM
+const cityInput = document.getElementById("city-input");
+const searchBtn = document.getElementById("search-btn");
+const suggestionsDiv = document.createElement("div"); // Contenedor para las sugerencias
+suggestionsDiv.id = "suggestions";
+document.body.appendChild(suggestionsDiv);
+
+// Función para obtener sugerencias de ciudades
+cityInput.addEventListener("input", async () => {
+  const query = cityInput.value.trim();
+
+  if (query.length > 1) {
     try {
-      // Obtener el clima actual
+      const response = await fetch(
+        `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${API_KEY}`
+      );
+      const data = await response.json();
+
+      // Mostrar sugerencias
+      displaySuggestions(data);
+    } catch (error) {
+      console.error("Error obteniendo sugerencias:", error);
+    }
+  } else {
+    clearSuggestions(); // Limpiar las sugerencias si no hay texto
+  }
+});
+
+// Mostrar sugerencias en la lista desplegable
+function displaySuggestions(suggestions) {
+  clearSuggestions();
+
+  suggestions.forEach((city) => {
+    const suggestion = document.createElement("div");
+    suggestion.classList.add("suggestion");
+    suggestion.textContent = `${city.name}, ${city.country}`;
+    suggestion.addEventListener("click", () => {
+      cityInput.value = city.name; // Rellenar el input con la ciudad seleccionada
+      clearSuggestions();
+    });
+    suggestionsDiv.appendChild(suggestion);
+  });
+
+  // Posicionar las sugerencias debajo del input
+  const inputRect = cityInput.getBoundingClientRect();
+  suggestionsDiv.style.left = `${inputRect.left}px`;
+  suggestionsDiv.style.top = `${inputRect.bottom + window.scrollY}px`;
+  suggestionsDiv.style.width = `${inputRect.width}px`;
+}
+
+// Limpiar las sugerencias
+function clearSuggestions() {
+  suggestionsDiv.innerHTML = "";
+}
+
+// Manejo de la búsqueda
+searchBtn.addEventListener("click", async () => {
+  const city = cityInput.value;
+  if (city) {
+    try {
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=es`
       );
@@ -15,14 +69,12 @@ document.getElementById("search-btn").addEventListener("click", async () => {
       const data = await response.json();
       displayWeather(data);
 
-      // Obtener el pronóstico de los próximos 5 días (cada 3 horas)
+      // Obtener pronóstico
       const forecastResponse = await fetch(
         `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric&lang=es`
       );
       const forecastData = await forecastResponse.json();
-
-      // Mostrar el pronóstico de 5 días (cada 3 horas)
-      displayForecast(forecastData.list); // Pronóstico cada 3 horas
+      displayForecast(forecastData.list);
     } catch (error) {
       alert(error.message);
     }
@@ -31,12 +83,12 @@ document.getElementById("search-btn").addEventListener("click", async () => {
   }
 });
 
+// Función para mostrar el clima (sin cambios)
 function displayWeather(data) {
   const weatherDiv = document.getElementById("weather-result");
   const iconCode = data.weather[0].icon;
   const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
 
-  // Mostrar los datos del clima actual
   weatherDiv.innerHTML = `
     <h2>${data.name}, ${data.sys.country}</h2>
     <img src="${iconUrl}" alt="Icono del clima">
@@ -52,35 +104,31 @@ function displayForecast(forecastList) {
   forecastDiv.innerHTML = ""; // Limpiar el contenido anterior
 
   // Agrupar el pronóstico por día
-  const dailyForecast = [];
+  const dailyForecast = {};
   forecastList.forEach((forecast) => {
     const date = new Date(forecast.dt * 1000);
     const day = date.toLocaleDateString("es-ES", {
       weekday: "long",
-      year: "numeric",
-      month: "short",
       day: "numeric",
+      month: "short",
     });
 
-    // Comprobar si ya tenemos un día en el arreglo
-    let dayForecast = dailyForecast.find((item) => item.day === day);
-    if (!dayForecast) {
-      dayForecast = { day: day, hours: [] };
-      dailyForecast.push(dayForecast);
+    // Si el día no está en el objeto, inicializarlo
+    if (!dailyForecast[day]) {
+      dailyForecast[day] = [];
     }
 
-    // Agregar los datos de cada hora
-    dayForecast.hours.push(forecast);
+    // Agregar el pronóstico a ese día
+    dailyForecast[day].push(forecast);
   });
 
-  // Mostrar el pronóstico de cada día con las horas
-  dailyForecast.forEach((day) => {
+  // Mostrar los datos de cada día
+  for (const [day, forecasts] of Object.entries(dailyForecast)) {
     const dayElement = document.createElement("div");
     dayElement.classList.add("forecast-day");
-    dayElement.innerHTML = `<h4>${day.day}</h4>`;
+    dayElement.innerHTML = `<h4>${day}</h4>`;
 
-    // Mostrar las primeras 3 horas del día
-    day.hours.slice(0, 3).forEach((hour) => {
+    forecasts.forEach((hour) => {
       const time = new Date(hour.dt * 1000).toLocaleTimeString([], {
         hour: "2-digit",
         minute: "2-digit",
@@ -90,16 +138,15 @@ function displayForecast(forecastList) {
       const description = hour.weather[0].description;
 
       dayElement.innerHTML += `
-  <div class="hourly-forecast">
-    <p>${time}</p>
-    <img src="${iconUrl}" alt="Icono del clima">
-    <p>${temp}°C</p>
-    <p>${description}</p>
-  </div>
-  <hr> <!-- Línea de separación -->
-`;
+        <div class="hourly-forecast">
+          <p>${time}</p>
+          <img src="${iconUrl}" alt="Icono del clima">
+          <p>${temp}°C</p>
+          <p>${description}</p>
+        </div>
+      `;
     });
 
     forecastDiv.appendChild(dayElement);
-  });
+  }
 }
