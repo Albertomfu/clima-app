@@ -1,7 +1,8 @@
 /* Diseño general */
+
 body {
   font-family: "Arial", sans-serif;
-  background: linear-gradient(135deg, #6c9ce8, #43b6f1); /* Fondo degradado */
+  background: linear-gradient(135deg, #6c9ce8, #79a7be); /* Fondo degradado */
   margin: 0;
   padding: 0;
   display: flex;
@@ -445,4 +446,44 @@ hr {
 
 .cookie-banner button:hover {
   background-color: #2980b9;
+}
+/* Header */
+header {
+  background-color: #2c3e50;
+  padding: 10px 0;
+}
+
+nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .logo a {
+  color: #fff;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+
+nav .nav-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+nav .nav-links li {
+  margin: 0 15px;
+}
+
+nav .nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav .nav-links a:hover {
+  color: #43b6f1;
 }

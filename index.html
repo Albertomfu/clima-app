@@ -3,19 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/src/style.css" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
     />
-    <link
-      rel="shortcut icon"
-      href="/img/aplicacion-meteorologica (1).png"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href="/img/favicon.webp" type="image/x-icon" />
+    <script src="/script.js" defer></script>
     <title>App de Clima</title>
   </head>
   <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <a href="http://127.0.0.7:5500/index.html">Tu Aplicación</a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="http://127.0.0.7:5500/index.html">Inicio</a></li>
+          <li>
+            <a href="http://127.0.0.7:5500/politicaPrivacidad.html"
+              >Política de Privacidad</a
+            >
+          </li>
+          <li><a href="mailto:AMFDeveloperP@hotmail.com">Contacto</a></li>
+          <li>
+            <a href="http://127.0.0.7:5500/terminosYCondiciones.html"
+              >Términos y Condiciones</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
     <div class="container">
       <h1>Clima Actual</h1>
       <input type="text" id="city-input" placeholder="Escribe una ciudad" />
