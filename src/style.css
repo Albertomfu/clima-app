@@ -372,7 +372,7 @@ button:hover {
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 48%;
+  width: 50%;
   margin-bottom: 20px;
 }
 
@@ -385,16 +385,17 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .hourly-forecast img {
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
   background-color: #2980b9;
 }
 
 .hourly-forecast p {
+  width: 15%;
   margin: 0;
   font-size: 1em;
   color: #555;
