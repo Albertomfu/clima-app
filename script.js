@@ -89,13 +89,13 @@ function displayWeather(data) {
   const iconCode = data.weather[0].icon;
   const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
 
-  weatherDiv.innerHTML = `
+  weatherDiv.innerHTML = `<div class="caracola">
     <h2>${data.name}, ${data.sys.country}</h2>
     <img src="${iconUrl}" alt="Icono del clima">
     <p>Temperatura: ${data.main.temp}°C</p>
     <p>Clima: ${data.weather[0].description}</p>
     <p>Humedad: ${data.main.humidity}%</p>
-    <p>Viento: ${data.wind.speed} m/s</p>
+    <p>Viento: ${data.wind.speed} m/s</p></div>
   `;
 }
 
