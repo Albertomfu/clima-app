@@ -1,4 +1,118 @@
-/* -------FOOTER------------- */
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+h1,
+h2 {
+  color: #2c3e50;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #555;
+}
+
+strong {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* Header */
+header {
+  background-color: #2c3e50;
+  padding: 10px 0;
+}
+
+nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .logo a {
+  color: #fff;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+
+nav .nav-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+nav .nav-links li {
+  margin: 0 15px;
+}
+
+nav .nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav .nav-links a:hover {
+  color: #43b6f1;
+}
+
+/* Main Content */
+.terms-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.terms-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.terms-container h2 {
+  margin-top: 20px;
+  font-size: 1.3em;
+}
+
+.terms-container p {
+  margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+  background-color: #2c3e50;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 40px;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .terms-container {
+    padding: 15px;
+  }
+}
+* -------FOOTER------------- */
 
 /* Estilos generales para el footer */
 .footer {
@@ -60,19 +174,9 @@
   color: #43b6f1;
 }
 
-.footer-social {
-  display: flex;
-  flex-direction: column; /* Asegura que los iconos y el título estén apilados */
-  align-items: center; /* Centra los elementos horizontalmente */
-  justify-content: center; /* Asegura que todo esté centrado */
-  text-align: center; /* Asegura que el título también esté centrado */
-}
-
 .footer-social .social-icons {
   display: flex;
-  justify-content: center; /* Centra los iconos en el contenedor */
   gap: 10px; /* Reducir el espacio entre los iconos */
-  margin-top: 10px; /* Espaciado opcional entre el título y los iconos */
 }
 
 .social-icon img {
@@ -114,69 +218,6 @@
   .footer-social .social-icons {
     justify-content: center;
   }
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  width: 80%;
-  max-width: 1200px;
-  margin: 20px auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-h1,
-h2 {
-  color: #2c3e50;
-  text-align: center;
-}
-
-p {
-  margin-bottom: 15px;
-  font-size: 1.1em;
-  color: #555;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-ul li {
-  margin-bottom: 10px;
-}
-
-.section-title {
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #2980b9;
-  margin-top: 20px;
-}
-
-.footer {
-  text-align: center;
-  font-size: 0.9em;
-  color: #777;
-  margin-top: 30px;
-}
-
-.footer a {
-  color: #2980b9;
-  text-decoration: none;
-}
-
-.footer a:hover {
-  text-decoration: underline;
 }
 .cookie-banner {
   position: fixed;

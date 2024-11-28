@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
@@ -13,18 +12,63 @@
       href="/img/aplicacion-meteorologica (1).png"
       type="image/x-icon"
     />
-    <title>App de Clima</title>
+    <title>Términos y Condiciones</title>
+    <link rel="stylesheet" href="terminosYCondiciones.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>Clima Actual</h1>
-      <input type="text" id="city-input" placeholder="Escribe una ciudad" />
-      <div id="suggestions"></div>
-      <!-- Contenedor para las sugerencias -->
-      <button id="search-btn">Buscar</button>
-      <div id="weather-result"></div>
-      <div id="forecast" class="forecast-container"></div>
-    </div>
+    <header>
+      <nav>
+        <div class="logo">
+          <a href="#">Tu Aplicación</a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Acerca de</a></li>
+          <li><a href="#">Contacto</a></li>
+          <li><a href="#">Términos y Condiciones</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="terms-container">
+      <h1>Términos y Condiciones</h1>
+      <strong>Última actualización:</strong> <span id="fecha-actual"></span>
+
+      <h2>1. Aceptación de los términos</h2>
+      <p>
+        Al acceder y usar este sitio web o la aplicación, aceptas estar sujeto a
+        estos Términos y Condiciones...
+      </p>
+
+      <h2>2. Uso de la aplicación</h2>
+      <p>
+        Esta aplicación está destinada para su uso personal y no comercial...
+      </p>
+
+      <h2>3. Privacidad y recopilación de datos</h2>
+      <p>
+        Recopilamos información personal para ofrecerte una experiencia más
+        personalizada...
+      </p>
+
+      <h2>4. Responsabilidad</h2>
+      <p>
+        No nos hacemos responsables de los daños derivados del uso de la
+        aplicación...
+      </p>
+
+      <h2>5. Cambios en los términos</h2>
+      <p>
+        Nos reservamos el derecho de modificar estos términos en cualquier
+        momento...
+      </p>
+
+      <h2>6. Contacto</h2>
+      <p>
+        Si tienes alguna pregunta sobre estos Términos y Condiciones,
+        contáctanos en: <strong>AMFDeveloperP@hotmail.com</strong>
+      </p>
+    </section>
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-about">
@@ -67,7 +111,6 @@
               target="_blank"
               class="social-icon"
             >
-              <!-- <i class="fab fa-x" style="font-size: 27px; color: black"></i> -->
               <img src="/img/sl_z_072523_61700_05.jpg" alt="imagen x" />
             </a>
             <a
@@ -87,28 +130,16 @@
         <p>&copy; 2024 App del Clima. Todos los derechos reservados.</p>
       </div>
     </footer>
-    <div id="cookie-banner" class="cookie-banner">
-      <p>
-        Utilizamos cookies para mejorar tu experiencia y analizar cómo usas
-        nuestra aplicación. Al continuar navegando, aceptas el uso de cookies.
-        <a href="#">Más información</a>.
-      </p>
-      <button id="accept-cookies">Aceptar</button>
-    </div>
-    <script>
-      const cookieBanner = document.getElementById("cookie-banner");
-      const acceptButton = document.getElementById("accept-cookies");
 
-      // Verificar si el usuario ya aceptó las cookies
-      if (!localStorage.getItem("cookiesAccepted")) {
-        cookieBanner.style.display = "block";
+    <script>
+      function obtenerFechaActual() {
+        const fecha = new Date();
+        const opciones = { year: "numeric", month: "long", day: "numeric" };
+        return fecha.toLocaleDateString("es-ES", opciones);
       }
 
-      // Si el usuario acepta, ocultamos el banner y guardamos la aceptación en el almacenamiento local
-      acceptButton.addEventListener("click", () => {
-        localStorage.setItem("cookiesAccepted", "true");
-        cookieBanner.style.display = "none";
-      });
+      document.getElementById("fecha-actual").textContent =
+        obtenerFechaActual();
     </script>
   </body>
 </html>
