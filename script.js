@@ -150,3 +150,22 @@ function displayForecast(forecastList) {
     forecastDiv.appendChild(dayElement);
   }
 }
+const cookieBanner = document.getElementById("cookie-banner");
+const acceptButton = document.getElementById("accept-cookies");
+const cancelButton = document.getElementById("cancel-cookies");
+
+// Verificar si el usuario ya aceptó las cookies
+if (!localStorage.getItem("cookiesAccepted")) {
+  cookieBanner.style.display = "block";
+}
+
+// Si el usuario acepta, ocultamos el banner y guardamos la aceptación en el almacenamiento local
+acceptButton.addEventListener("click", () => {
+  localStorage.setItem("cookiesAccepted", "true");
+  cookieBanner.style.display = "none";
+});
+
+// Si el usuario cancela, ocultamos el banner sin guardar nada en el almacenamiento local
+cancelButton.addEventListener("click", () => {
+  cookieBanner.style.display = "none";
+});

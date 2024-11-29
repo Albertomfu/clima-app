@@ -118,21 +118,6 @@
       <button id="accept-cookies">Aceptar</button>
       <button id="cancel-cookies">Cancelar</button>
     </div>
-    <script>
-      const cookieBanner = document.getElementById("cookie-banner");
-      const acceptButton = document.getElementById("accept-cookies");
-
-      // Verificar si el usuario ya aceptó las cookies
-      if (!localStorage.getItem("cookiesAccepted")) {
-        cookieBanner.style.display = "block";
-      }
-
-      // Si el usuario acepta, ocultamos el banner y guardamos la aceptación en el almacenamiento local
-      acceptButton.addEventListener("click", () => {
-        localStorage.setItem("cookiesAccepted", "true");
-        cookieBanner.style.display = "none";
-      });
-    </script>
     <script src="/config.js" defer></script>
     <script src="/script.js" defer></script>
   </body>
