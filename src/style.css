@@ -372,7 +372,7 @@ button:hover {
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 50%;
+  width: 58%;
   margin-bottom: 20px;
 }
 
@@ -416,4 +416,8 @@ button:hover {
 }
 .caracola img {
   background-color: #2980b9;
+}
+
+#city-input {
+  width: 20rem;
 }
