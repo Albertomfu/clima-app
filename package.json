@@ -4,7 +4,8 @@
   "description": "Una sencilla aplicación web para consultar el clima en tiempo real, utilizando la API de OpenWeather. La app permite a los usuarios buscar la previsión meteorológica de cualquier ciudad, mostrando información como la temperatura actual, el clima, la humedad, el viento y un icono representativo del clima.",
   "main": "config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch src/scss/styles.scss:src/css/styles.css"
   },
   "keywords": [],
   "author": "",
