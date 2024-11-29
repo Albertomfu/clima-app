@@ -1,5 +1,4 @@
 const API_KEY = CONFIG.OPENWEATHER_API_KEY;
-console.log("Usando la clave API desde config.js:", API_KEY);
 
 // Elementos del DOM
 const cityInput = document.getElementById("city-input");
