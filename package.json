@@ -1,0 +1,15 @@
+{
+  "name": "empiezan-los-proyectos",
+  "version": "1.0.0",
+  "description": "Una sencilla aplicación web para consultar el clima en tiempo real, utilizando la API de OpenWeather. La app permite a los usuarios buscar la previsión meteorológica de cualquier ciudad, mostrando información como la temperatura actual, el clima, la humedad, el viento y un icono representativo del clima.",
+  "main": "config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.81.0"
+  }
+}
