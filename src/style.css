@@ -1,10 +1,19 @@
 /* General Styles */
+html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
 body {
+  height: 100%;
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   margin: 0;
   padding: 0;
   color: #333;
+  display: flex;
+  flex-direction: column;
 }
 
 h1,
@@ -151,6 +160,7 @@ body {
 }
 
 .container {
+  flex: 1;
   width: 80%;
   max-width: 1200px;
   margin: 20px auto;
@@ -190,7 +200,9 @@ ul li {
 }
 
 .footer {
-  text-align: center;
+  width: 100%;
+  padding: 20px 0;
+  text-align: left;
   font-size: 0.9em;
   color: #777;
   margin-top: 30px;
