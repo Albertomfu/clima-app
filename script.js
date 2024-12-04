@@ -1,5 +1,8 @@
-const API_KEY = CONFIG.OPENWEATHER_API_KEY;
-const API_KEY_APPTIME_NETLIFY = process.env.API_KEY || "development-api-key"; // Usa un valor local para pruebas si no hay variable
+const API_KEY = CONFIG.OPENWEATHER_API_KEY; // Para entorno local
+
+// Para entorno Netlify (asegúrate de que la variable esté configurada correctamente en Netlify)
+const API_KEY_APPTIME_NETLIFY = window.NETLIFY_API_KEY || "development-api-key";
+
 // Elementos del DOM
 const cityInput = document.getElementById("city-input");
 const searchBtn = document.getElementById("search-btn");
