@@ -1,15 +1,20 @@
-import CONFIG from "./config.js"; // Importa el archivo de configuración
-
 let API_KEY;
 
-// Verificar si estamos en el entorno de producción (Netlify) o desarrollo (local)
+// Verificar si estamos en Netlify usando variables de entorno prefijadas
 if (typeof window !== "undefined" && window.NETLIFY_API_KEY) {
-  // En Netlify: usa la clave desde las variables de entorno (pasadas por Netlify)
+  // En Netlify: usa la clave desde las variables de entorno (usando `REACT_APP_` o un prefijo adecuado)
   API_KEY = window.NETLIFY_API_KEY;
-} else if (CONFIG.OPENWEATHER_API_KEY) {
+} else if (typeof process !== "undefined" && process.env.REACT_APP_API_KEY) {
+  // En local o entorno de desarrollo: usa la clave del archivo `.env` (si usas algo como Create React App o similar)
+  API_KEY = process.env.REACT_APP_API_KEY;
+} else if (typeof CONFIG !== "undefined" && CONFIG.OPENWEATHER_API_KEY) {
   // En local: usa la clave del archivo `config.js`
   API_KEY = CONFIG.OPENWEATHER_API_KEY;
 } else {
+  console.error("No se pudo configurar una API_KEY válida.");
+}
+
+if (!API_KEY) {
   console.error("No se pudo configurar una API_KEY válida.");
 }
 
