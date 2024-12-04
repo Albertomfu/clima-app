@@ -1,9 +1,9 @@
-import CONFIG from "./config.js";
+// import CONFIG from "./config.js";
 
 const API_KEY = CONFIG.OPENWEATHER_API_KEY; // Para entorno local
 
 // Para entorno Netlify (asegúrate de que la variable esté configurada correctamente en Netlify)
-const API_KEY_APPTIME_NETLIFY = window.NETLIFY_API_KEY || "development-api-key";
+const API_KEY_APPTIME_NETLIFY = window.NETLIFY_API_KEY || "default-api-key"; // Accede a la variable de entorno
 
 // Elementos del DOM
 const cityInput = document.getElementById("city-input");
