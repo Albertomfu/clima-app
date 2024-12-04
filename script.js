@@ -1,3 +1,5 @@
+import CONFIG from "./config.js";
+
 const API_KEY = CONFIG.OPENWEATHER_API_KEY; // Para entorno local
 
 // Para entorno Netlify (asegúrate de que la variable esté configurada correctamente en Netlify)
