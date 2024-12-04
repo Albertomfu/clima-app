@@ -3,7 +3,8 @@ const API_KEY = "e30a987bf8691a449fc7e9f7d8e9e789"; // Para entorno local
 // const API_KEY = CONFIG.OPENWEATHER_API_KEY; // Para entorno local
 
 // Para entorno Netlify (asegúrate de que la variable esté configurada correctamente en Netlify)
-const API_KEY_APPTIME_NETLIFY = window.NETLIFY_API_KEY || "default-api-key"; // Accede a la variable de entorno
+const API_KEY_APPTIME_NETLIFY =
+  window.API_KEY_APPTIME_NETLIFY || "default-api-key"; // Accede a la variable de entorno
 
 // Elementos del DOM
 const cityInput = document.getElementById("city-input");
