@@ -1,5 +1,20 @@
-const API_KEY = CONFIG.OPENWEATHER_API_KEY;
-const API_KEY_NETLIFY = process.env.API_KEY || "development-api-key"; // Usa un valor local para pruebas si no hay variable
+import CONFIG from "./config.js"; // Importa el archivo de configuración
+
+let API_KEY;
+
+// Verificar si estamos en el entorno de producción (Netlify) o desarrollo (local)
+if (typeof window !== "undefined" && window.NETLIFY_API_KEY) {
+  // En Netlify: usa la clave desde las variables de entorno (pasadas por Netlify)
+  API_KEY = window.NETLIFY_API_KEY;
+} else if (CONFIG.OPENWEATHER_API_KEY) {
+  // En local: usa la clave del archivo `config.js`
+  API_KEY = CONFIG.OPENWEATHER_API_KEY;
+} else {
+  console.error("No se pudo configurar una API_KEY válida.");
+}
+
+// Mostrar la clave de la API en consola (solo para depuración)
+console.log("API_KEY:", API_KEY);
 
 // Elementos del DOM
 const cityInput = document.getElementById("city-input");
