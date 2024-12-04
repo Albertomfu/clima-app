@@ -1,8 +1,10 @@
-// const API_KEY_APPTIME_NETLIFY = CONFIG.OPENWEATHER_API_KEY_APPTIME_NETLIFY; // Para entorno local
+// import CONFIG from "./config.js";
+const API_KEY = "e30a987bf8691a449fc7e9f7d8e9e789"; // Para entorno local
+// const API_KEY = CONFIG.OPENWEATHER_API_KEY; // Para entorno local
 
 // Para entorno Netlify (asegúrate de que la variable esté configurada correctamente en Netlify)
-const API_KEY_APPTIME_NETLIFY_APPTIME_NETLIFY =
-  window.API_KEY_APPTIME_NETLIFY_APPTIME_NETLIFY || "default-api-key"; // Accede a la variable de entorno
+const API_KEY_APPTIME_NETLIFY =
+  window.API_KEY_APPTIME_NETLIFY || "default-api-key"; // Accede a la variable de entorno
 
 // Elementos del DOM
 const cityInput = document.getElementById("city-input");
@@ -18,7 +20,7 @@ cityInput.addEventListener("input", async () => {
   if (query.length > 1) {
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${API_KEY_APPTIME_NETLIFY}`
+        `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${API_KEY}`
       );
       const data = await response.json();
 
@@ -65,7 +67,7 @@ searchBtn.addEventListener("click", async () => {
   if (city) {
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY_APPTIME_NETLIFY}&units=metric&lang=es`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=es`
       );
       if (!response.ok) {
         throw new Error("Ciudad no encontrada");
@@ -75,7 +77,7 @@ searchBtn.addEventListener("click", async () => {
 
       // Obtener pronóstico
       const forecastResponse = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY_APPTIME_NETLIFY}&units=metric&lang=es`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric&lang=es`
       );
       const forecastData = await forecastResponse.json();
       displayForecast(forecastData.list);
