@@ -1,4 +1,4 @@
-const API_KEY = CONFIG.OPENWEATHER_API_KEY;
+const API_KEY = "e30a987bf8691a449fc7e9f7d8e9e789";
 
 // Elementos del DOM
 const cityInput = document.getElementById("city-input");
