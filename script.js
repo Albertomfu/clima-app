@@ -1,5 +1,3 @@
-import CONFIG from "./config.js";
-
 const API_KEY = CONFIG.OPENWEATHER_API_KEY;
 const API_KEY_NETLIFY = process.env.API_KEY || "development-api-key"; // Usa un valor local para pruebas si no hay variable
 
