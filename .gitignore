@@ -10,4 +10,4 @@ logs/
 npm-debug.log*
 
 
-config.js
+# config.js
