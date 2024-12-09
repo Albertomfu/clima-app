@@ -9,5 +9,5 @@ logs/
 *.log
 npm-debug.log*
 
-
+# Ignorar el archivo de config.js donde esta la clave api
 config.js
