@@ -1,5 +1,5 @@
 // import CONFIG from "./config.js";
-// const API_KEY = "e30a987bf8691a449fc7e9f7d8e9e789"; // Para cuando trabajo con entorno en local si no la quito
+// const API_KEY = "la clave esta dentro del config.js"; // Para cuando trabajo con entorno en local si no la quito
 // const API_KEY = CONFIG.OPENWEATHER_API_KEY; // Para entorno local
 
 // Para entorno Netlify (asegúrate de que la variable esté configurada correctamente en Netlify)
