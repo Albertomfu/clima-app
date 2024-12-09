@@ -274,7 +274,7 @@ nav {
 
 nav .logo a {
   color: transparent; /* Hacer que el color del texto sea transparente */
-  font-size: 3em;
+  font-size: 2.2em;
   text-decoration: none;
   margin-left: 30px;
   font-family: "Montserrat", sans-serif;
@@ -446,10 +446,10 @@ button:hover {
   }
 }
 
-.caracola {
+.climaActual {
   text-align: center;
 }
-.caracola img {
+.climaActual img {
   background-color: #2980b9;
 }
 

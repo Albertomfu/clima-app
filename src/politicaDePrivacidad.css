@@ -250,9 +250,21 @@ nav {
 }
 
 nav .logo a {
-  color: #fff;
-  font-size: 1.5em;
+  color: transparent; /* Hacer que el color del texto sea transparente */
+  font-size: 2.2em;
   text-decoration: none;
+  margin-left: 30px;
+  font-family: "Montserrat", sans-serif;
+
+  /* Aplicar un degradado de color */
+  background: linear-gradient(
+    to right,
+    #3498db,
+    #f1c40f,
+    #bdc3c7
+  ); /* Azul a amarillo a gris */
+  -webkit-background-clip: text; /* Hace que el degradado se aplique solo al texto */
+  background-clip: text; /* Para navegadores modernos */
 }
 
 nav .nav-links {
